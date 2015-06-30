@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
+  bullet: {fileID: 0}
 --- !u!23 &1084960107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -375,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
+  bullet: {fileID: 0}
 --- !u!23 &1655771895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -474,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
+  bullet: {fileID: 0}
 --- !u!23 &1697391842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -573,7 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a8e6f0d57290c419e6be03761f27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMine: 0
+  isMine: 1
+  bullet: {fileID: 0}
 --- !u!23 &2006169784
 MeshRenderer:
   m_ObjectHideFlags: 0
