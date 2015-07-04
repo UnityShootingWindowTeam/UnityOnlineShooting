@@ -31,7 +31,8 @@ public class Controller : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				GetComponent<NetworkView> ().RPC (
 					"Shoot",
-					RPCMode.All);
+					RPCMode.All,
+					gameObject);
 			}
 		}
 	}
@@ -42,7 +43,8 @@ public class Controller : MonoBehaviour {
 	}
 
 	[RPC]
-	public void Shoot(){
-		Instantiate (bullet, transform.position, transform.rotation);
+	public void Shoot(GameObject owner){
+		Bullet b = ((GameObject)Instantiate (bullet, transform.position, transform.rotation)).GetComponent<Bullet> ();
+		b.owner = owner;
 	}
 }
