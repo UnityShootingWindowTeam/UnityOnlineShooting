@@ -3,12 +3,11 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
-	public GameObject myobj;
 	private NetworkView view;
+	public GameObject owner;
 
 	void Start () {
 		view = GetComponent<NetworkView> ();
-		myobj = GetComponent<GameObject> ();
 	}
 
 	// Update is called once per frame
@@ -18,29 +17,23 @@ public class Bullet : MonoBehaviour {
 			"MoveBullet",
 			RPCMode.Others,
 			transform.position);
-
-		view.RPC (
-			"OnCollisionEnter",
-			RPCMode.All,
-			gameObject.GetComponent<SphereCollider> ());
 			
 		if (transform.position.x < -30||transform.position.x > 30||
 		    transform.position.z < -30||transform.position.z > 30) {
 			Destroy (gameObject);
 		}
 	}
-
-	[RPC]
-	public void MoveBullet(Vector3 position){
-		transform.position = position;
-	}
-
-	[RPC]
-	public void OnCollisionEnter(Collision coll)
+	
+	void OnTriggerEnter(Collider coll)
 	{
 		Controller c = coll.gameObject.GetComponent<Controller> ();
 		if (!c.isMine) {
 			Destroy(coll.gameObject);
 		}
+	}
+
+	[RPC]
+	public void MoveBullet(Vector3 position){
+		transform.position = position;
 	}
 }
