@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
+	public GameObject myobj;
 	private NetworkView view;
 
 	void Start () {
 		view = GetComponent<NetworkView> ();
+		myobj = GetComponent<GameObject> ();
 	}
 
 	// Update is called once per frame
@@ -16,10 +18,24 @@ public class Bullet : MonoBehaviour {
 			"MoveBullet",
 			RPCMode.Others,
 			transform.position);
+
+		view.RPC (
+			"OnCollisionEnter",
+			RPCMode.All,
+			gameObject.GetComponent<SphereCollider> ());
 	}
 
 	[RPC]
 	public void MoveBullet(Vector3 position){
 		transform.position = position;
+	}
+
+	[RPC]
+	public void OnCollisionEnter(Collision coll)
+	{
+		Controller c = coll.gameObject.GetComponent<Controller> ();
+		if (!c.isMine) {
+			Destroy(coll.gameObject);
+		}
 	}
 }
