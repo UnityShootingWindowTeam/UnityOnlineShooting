@@ -23,6 +23,11 @@ public class Bullet : MonoBehaviour {
 			"OnCollisionEnter",
 			RPCMode.All,
 			gameObject.GetComponent<SphereCollider> ());
+			
+		if (transform.position.x < -30||transform.position.x > 30||
+		    transform.position.z < -30||transform.position.z > 30) {
+			Destroy (gameObject);
+		}
 	}
 
 	[RPC]
