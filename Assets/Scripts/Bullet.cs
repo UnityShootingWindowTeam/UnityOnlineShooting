@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour {
 		Controller c = coll.gameObject.GetComponent<Controller> ();
 		if (!c.isMine) {
 			Destroy(coll.gameObject);
+			Destroy(gameObject);
 		}
 	}
 
