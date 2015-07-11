@@ -1,7 +1,7 @@
 # ---------------[ Unity generated ]------------------ #
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
+Library/
+Temp/
+Obj/
 UnityGenerated/
 ProjectSettings/*.asset
  
@@ -31,6 +31,4 @@ Thumbs.db
 # -------------[ Build ]------------------------ #
 *.html
 *.unity3d
-
-Library/
 
