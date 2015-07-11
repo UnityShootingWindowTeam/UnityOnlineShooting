@@ -32,7 +32,9 @@ public class Controller : MonoBehaviour {
 				GetComponent<NetworkView> ().RPC (
 					"Shoot",
 					RPCMode.All,
-					GetComponent<NetworkView> ().viewID);
+					GetComponent<NetworkView> ().viewID,
+					transform.position,
+					transform.rotation);
 			}
 		}
 	}
@@ -43,8 +45,8 @@ public class Controller : MonoBehaviour {
 	}
 
 	[RPC]
-	public void Shoot(NetworkViewID viewID){
-		Bullet b = ((GameObject)Instantiate (bullet, transform.position, transform.rotation)).GetComponent<Bullet> ();
+	public void Shoot(NetworkViewID viewID, Vector3 position, Quaternion rotation){
+		Bullet b = ((GameObject)Instantiate (bullet, position, rotation)).GetComponent<Bullet> ();
 		b.ownerID = viewID;
 	}
 }
