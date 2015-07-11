@@ -4,7 +4,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
 	private NetworkView view;
-	public GameObject owner;
+	public NetworkViewID ownerID;
 
 	void Start () {
 		view = GetComponent<NetworkView> ();
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider coll)
 	{
 		Controller c = coll.gameObject.GetComponent<Controller> ();
-		if (!c.isMine) {
+		if (c.GetComponent<NetworkView>().viewID != ownerID) {
 			Destroy(coll.gameObject);
 			Destroy(gameObject);
 		}
