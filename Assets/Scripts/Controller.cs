@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour {
 				GetComponent<NetworkView> ().RPC (
 					"Shoot",
 					RPCMode.All,
-					gameObject);
+					gameObject.GetComponent<NetworkView>().viewID);
 			}
 		}
 	}
@@ -43,8 +43,10 @@ public class Controller : MonoBehaviour {
 	}
 
 	[RPC]
-	public void Shoot(GameObject owner){
-		Bullet b = ((GameObject)Instantiate (bullet, transform.position, transform.rotation)).GetComponent<Bullet> ();
-		b.owner = owner;
+	public void Shoot(NetworkViewID owner){
+		if (gameObject.GetComponent<NetworkView> ().viewID == owner) {
+			Bullet b = ((GameObject)Instantiate (bullet, transform.position, transform.rotation)).GetComponent<Bullet> ();
+			b.owner = gameObject;
+		}
 	}
 }
