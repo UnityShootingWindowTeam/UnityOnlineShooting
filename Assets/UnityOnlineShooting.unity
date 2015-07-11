@@ -87,6 +87,39 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &96534904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 158540, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+  m_PrefabInternal: {fileID: 1404643218}
+--- !u!114 &96534905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96534904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a8e6f0d57290c419e6be03761f27e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMine: 1
+  bullet: {fileID: 131294, guid: fd9fdfcbc1e525446a2b6acb5bd0fc73, type: 2}
+--- !u!148 &96534906
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96534904}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 96534910}
+  m_ViewID:
+    m_ID: 6
+    m_Type: 1
+--- !u!4 &96534910 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+  m_PrefabInternal: {fileID: 1404643218}
 --- !u!1 &541818359
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +348,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1084960104
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 131294, guid: fd9fdfcbc1e525446a2b6acb5bd0fc73, type: 2}
 --- !u!23 &1084960107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -417,6 +450,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1001 &1404643218
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 425110, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 24418efcd51ad5f48a3b4b46e1be96dc, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1655771892
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 131294, guid: fd9fdfcbc1e525446a2b6acb5bd0fc73, type: 2}
 --- !u!23 &1655771895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -561,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMine: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 131294, guid: fd9fdfcbc1e525446a2b6acb5bd0fc73, type: 2}
 --- !u!23 &1697391842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -661,8 +736,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a8e6f0d57290c419e6be03761f27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMine: 1
-  bullet: {fileID: 0}
+  isMine: 0
+  bullet: {fileID: 131294, guid: fd9fdfcbc1e525446a2b6acb5bd0fc73, type: 2}
 --- !u!23 &2006169784
 MeshRenderer:
   m_ObjectHideFlags: 0
