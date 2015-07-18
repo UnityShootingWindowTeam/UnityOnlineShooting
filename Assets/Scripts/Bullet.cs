@@ -28,6 +28,10 @@ public class Bullet : MonoBehaviour {
 	{
 		Controller c = coll.gameObject.GetComponent<Controller> ();
 		if (c.GetComponent<NetworkView>().viewID != ownerID) {
+			view.RPC (
+				"KillObject",
+				RPCMode.All,
+				coll.GetComponent<NetworkView>().viewID);
 			Destroy(coll.gameObject);
 			Destroy(gameObject);
 		}
@@ -36,5 +40,14 @@ public class Bullet : MonoBehaviour {
 	[RPC]
 	public void MoveBullet(Vector3 position){
 		transform.position = position;
+	}
+
+	[RPC]
+	public void KillObject(NetworkViewID id){
+		foreach(GameObject obj in UnityEngine.Object.FindObjectsOfType(typeof(GameObject))) {
+			if (id == obj.GetComponent<NetworkView>().viewID) {
+				Destroy(obj);
+			}
+		}
 	}
 }
