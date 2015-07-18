@@ -13,10 +13,10 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.position += transform.forward * 0.5f;
-		view.RPC (
-			"MoveBullet",
-			RPCMode.Others,
-			transform.position);
+//		view.RPC (
+//			"MoveBullet",
+//			RPCMode.Others,
+//			transform.position);
 			
 		if (transform.position.x < -30||transform.position.x > 30||
 		    transform.position.z < -30||transform.position.z > 30) {
@@ -28,10 +28,10 @@ public class Bullet : MonoBehaviour {
 	{
 		Controller c = coll.gameObject.GetComponent<Controller> ();
 		if (c.GetComponent<NetworkView>().viewID != ownerID) {
-			view.RPC (
-				"KillObject",
-				RPCMode.All,
-				coll.GetComponent<NetworkView>().viewID);
+//			view.RPC (
+//				"KillObject",
+//				RPCMode.All,
+//				coll.GetComponent<NetworkView>().viewID);
 			Destroy(coll.gameObject);
 			Destroy(gameObject);
 		}
